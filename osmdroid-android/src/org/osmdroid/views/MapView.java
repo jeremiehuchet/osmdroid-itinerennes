@@ -712,38 +712,33 @@ public class MapView extends ViewGroup implements IMapView, MapViewConstants,
 	}
 
 	@Override
-    public boolean onTouchEvent(final MotionEvent event) {
+	public boolean dispatchTouchEvent(final MotionEvent event) {
 
-        return false;
-    }
+		if (DEBUGMODE) {
+			logger.debug("dispatchTouchEvent(" + event + ")");
+		}
 
-    @Override
-    public boolean dispatchTouchEvent(final MotionEvent event) {
+		final boolean r = super.dispatchTouchEvent(event);
+		if (!r) {
+			if (mOverlayManager.onTouchEvent(event, this)) {
+				return true;
+			}
 
-        if (DEBUGMODE) {
-            logger.debug("dispatchTouchEvent(" + event + ")");
-        }
+			if (mMultiTouchController != null
+					&& mMultiTouchController.onTouchEvent(event)) {
+				if (DEBUGMODE) {
+					logger.debug("mMultiTouchController handled onTouchEvent");
+				}
+				return true;
+			}
 
-        final boolean r = super.dispatchTouchEvent(event);
-        if (!r) {
-            if (mOverlayManager.onTouchEvent(event, this)) {
-                return true;
-            }
-
-            if (mMultiTouchController != null && mMultiTouchController.onTouchEvent(event)) {
-                if (DEBUGMODE) {
-                    logger.debug("mMultiTouchController handled onTouchEvent");
-                }
-                return true;
-            }
-
-            if (mGestureDetector.onTouchEvent(event)) {
-                if (DEBUGMODE) {
-                    logger.debug("mGestureDetector handled onTouchEvent");
-                }
-                return true;
-            }
-        }
+			if (mGestureDetector.onTouchEvent(event)) {
+				if (DEBUGMODE) {
+					logger.debug("mGestureDetector handled onTouchEvent");
+				}
+				return true;
+			}
+		}
 
 		if (r) {
 			if (DEBUGMODE) {
