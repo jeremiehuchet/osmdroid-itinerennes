@@ -710,6 +710,12 @@ public class MapView extends ViewGroup implements IMapView, MapViewConstants,
 
 		return super.onTrackballEvent(event);
 	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+	
+	    return false;
+	}
 
 	@Override
 	public boolean dispatchTouchEvent(final MotionEvent event) {
