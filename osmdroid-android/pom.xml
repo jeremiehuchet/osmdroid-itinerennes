@@ -11,6 +11,12 @@
     <description>A slightly modified version of osmdroid-android to fit needs from Android application ItineRennes</description>
     <url>https://github.com/kops/osmdroid-itinerennes</url>
 
+    <scm>
+        <url>https://github.com/kops/osmdroid-itinerennes/tree/master</url>
+        <connection>scm:git:git@github.com:kops/osmdroid-itinerennes.git</connection>
+        <developerConnection>scm:git:git@github.com:kops/osmdroid-itinerennes.git</developerConnection>
+    </scm>
+
     <issueManagement>
         <system>Github tracker</system>
         <url>https://github.com/kops/osmdroid-android/issues</url>
