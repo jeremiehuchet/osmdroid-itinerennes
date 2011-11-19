@@ -58,10 +58,11 @@
     </distributionManagement>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
+        <sourceDirectory>${basedir}/src</sourceDirectory>
         <resources>
             <resource>
-                <directory>assets</directory>
+                <directory>${basedir}/assets</directory>
+                <targetPath>${project.build.outputDirectory}/org/osmdroid</targetPath>
             </resource>
         </resources>
         <testSourceDirectory>tests</testSourceDirectory>
