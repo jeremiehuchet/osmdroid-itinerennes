@@ -870,6 +870,12 @@ public class MapView extends ViewGroup implements IMapView, MapViewConstants,
 	}
 
 	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return false;
+	}
+
+	@Override
 	public boolean dispatchTouchEvent(final MotionEvent event) {
 
 		if (DEBUGMODE) {
@@ -883,20 +889,23 @@ public class MapView extends ViewGroup implements IMapView, MapViewConstants,
 		// Get rotated event for some touch listeners.
 		MotionEvent rotatedEvent = rotateTouchEvent(event);
 
-		if (this.getOverlayManager().onTouchEvent(rotatedEvent, this)) {
-			return true;
+		final boolean r = super.dispatchTouchEvent(event);
+		if (!r) {
+			if (this.getOverlayManager().onTouchEvent(event, this)) {
+				if (DEBUGMODE) {
+					logger.debug("an overlay handled onTouchEvent");
+				}
+				return true;
+			}
+		} else {
+			if (DEBUGMODE) {
+				logger.debug("super handled onTouchEvent");
+			}
 		}
 
 		if (mMultiTouchController != null && mMultiTouchController.onTouchEvent(event)) {
 			if (DEBUGMODE) {
 				logger.debug("mMultiTouchController handled onTouchEvent");
-			}
-			return true;
-		}
-
-		if (super.dispatchTouchEvent(event)) {
-			if (DEBUGMODE) {
-				logger.debug("super handled onTouchEvent");
 			}
 			return true;
 		}
