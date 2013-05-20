@@ -3,15 +3,15 @@
 
     <parent>
         <groupId>org.osmdroid</groupId>
-        <artifactId>osmdroid-parent</artifactId>
-        <version>3.0.11-SNAPSHOT</version>
+        <artifactId>osmdroid-itinerennes-parent</artifactId>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>osmdroid-android</artifactId>
+    <artifactId>osmdroid-itinerennes</artifactId>
     <packaging>jar</packaging>
 
-    <name>OSMdroid Android</name>
-    <description>An Android library to display OpenStreetMap views.</description>
+    <name>OSMdroid ItineRennes</name>
+    <description>A slightly modified version of osmdroid-android to fit needs from Android application ItineRennes</description>
 
     <dependencies>
         <!-- Android included libraries -->
