@@ -3,7 +3,7 @@
 
     <groupId>org.osmdroid</groupId>
     <artifactId>osmdroid-itinerennes-parent</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>pom</packaging>
 
     <name>OSMdroid ItineRennes parent</name>
@@ -13,7 +13,8 @@
         <url>https://github.com/kops/osmdroid-itinerennes/tree/master</url>
         <connection>scm:git:git@github.com:kops/osmdroid-itinerennes.git</connection>
         <developerConnection>scm:git:git@github.com:kops/osmdroid-itinerennes.git</developerConnection>
-    </scm>
+      <tag>osmdroid-itinerennes-1.1</tag>
+  </scm>
 
     <issueManagement>
         <system>Github tracker</system>
